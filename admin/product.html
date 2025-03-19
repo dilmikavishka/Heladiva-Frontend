@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<!--=============== NAV ===============-->
+<div class="nav" id="nav">
+    <nav class="nav__content">
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-chevron-right' ></i>
+        </div>
+
+        <a href="admin.html" class="nav__logo">
+            <i class='bx bxs-heart' ></i>
+            <span class="nav__logo-name">Hela-diva</span>
+        </a>
+
+        <div class="nav__list">
+            <a href="admin.html" class="nav__link active-link">
+                <i class='bx bx-grid-alt'></i>
+                <span class="nav__name">Dashboard</span>
+            </a>
+
+            <a href="article.html" class="nav__link">
+                <i class='bx bx-envelope' ></i>
+                <span class="nav__name">Article Manage</span>
+            </a>
+
+            <a href="product.html" class="nav__link">
+                <i class='bx bx-file'></i>
+                <span class="nav__name">Product Manage</span>
+            </a>
+
+            <a href="order.html" class="nav__link">
+                <i class='bx bx-bar-chart-square' ></i>
+                <span class="nav__name">Order Manage</span>
+            </a>
+
+
+        </div>
+    </nav>
+</div>
+
+<main class="container section">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Product Management</h1>
+        <button class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#productModal">
+            <i class="bx bx-plus me-2"></i> Add Product
+        </button>
+    </div>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-striped table-bordered text-center">
+            <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Stock Availability</th>
+                <th>Price in LKR</th>
+                <th>Location</th>
+                <th>Type of State</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="productTableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg"> <!-- Larger modal -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Add Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="productForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Product Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Scientific Name</label>
+                                    <input type="text" class="form-control" id="scientificName">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Seasonality</label>
+                                    <input type="text" class="form-control" id="seasonality">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Location</label>
+                                    <input type="text" class="form-control" id="location">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Uses</label>
+                                    <textarea class="form-control" id="uses"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" id="description"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Health Benefits</label>
+                                    <textarea class="form-control" id="healthBenefits"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Map Coordinates</label>
+                                    <input type="text" class="form-control" id="mapCoordinates">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Price (LKR)</label>
+                                    <input type="number" class="form-control" id="price" step="0.01">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Stock Availability</label>
+                                    <input type="number" class="form-control" id="stockAvailability" min="0">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Product Type</label>
+                                    <input type="text" class="form-control" id="productType" min="0">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Upload Product Image</label>
+                                    <input type="file" class="form-control" id="imageUpload" accept="image/*">
+                                </div>
+                                <img id="previewImage" src="https://via.placeholder.com/120" alt="Preview" class="mt-2 d-block mx-auto" width="120">
+                            </div>
+                        </div>
+                        <button id="Save-Product-Button" class="btn btn-primary" type="button">Save Product</button>
+                        <button id="Update-Product-Button" class="btn btn-secondary" type="button">Update Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="../JavaScript/admin/ProductController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

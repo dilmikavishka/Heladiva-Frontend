@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background: #f3f4f6;
+        }
+        .navbar {
+            background: rgba(0, 255, 31, 0.2);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            height: 60px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            padding: 12px 20px;
+            z-index: 1000;
+        }
+
+        .navbar-nav .nav-link {
+            color: black !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ff9900 !important;
+        }
+
+        .user-profile {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #27AE60;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-menu a {
+            padding: 10px 15px;
+            font-weight: 500;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #27AE60;
+            color: #fff;
+        }
+        .form-container {
+            padding: 30px;
+            margin-top: 80px;
+        }
+        .btn-update {
+            background: #2563eb;
+            border: none;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        .btn-update:hover {
+            background: #1d4ed8;
+        }
+        .profile-pic {
+            display: block;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Heladiva</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><a class="nav-link active" href="./Home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Medicines</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Remedies</a></li>
+                <li class="nav-item"><a class="nav-link" href="article.html">Encarta</a></li>
+                <li class="nav-item"><a class="nav-link" href="">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+
+                <li class="nav-item dropdown user-profile">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://i.pravatar.cc/300" alt="User">
+                    </a>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li><a class="dropdown-item" href="ProfileEdits.html" id="profile-nav-dropdown"><span class="material-icons">person</span> Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><span class="material-icons">settings</span> Settings</a></li>
+                        <li><a class="dropdown-item" href="../index.html"><span class="material-icons">logout</span> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container form-container">
+    <h2 class="mb-4">Update Profile</h2>
+    <form>
+            <div class="text-center">
+                <img id="profileImage" class="profile-pic" src="" alt="Profile Picture">
+                <input type="file" id="profileUpload" class="form-control mt-2" accept="/*">
+            </div>
+        <div class="mb-3">
+            <label class="form-label">User ID</label>
+            <input type="text" id="userId" class="form-control" disabled>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" disabled>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="text" id="phone" class="form-control" placeholder="Enter your phone number">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input type="text" id="address" class="form-control" placeholder="Enter your address">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <div class="input-group">
+                <input type="password" id="password" class="form-control" placeholder="Enter a new password">
+                <button class="btn btn-outline" type="button" id="togglePassword">
+                    <span id="passwordIcon" class="material-icons">visibility</span>
+                </button>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Role</label>
+            <input type="text" id="role" class="form-control" disabled>
+        </div>
+        <button id="Update-Profile-Button" class="">Update Profile</button>
+    </form>
+</div>
+
+<script type="module" src="../JavaScript/UserController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

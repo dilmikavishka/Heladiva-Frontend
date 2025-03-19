@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<!--=============== NAV ===============-->
+<div class="nav" id="nav">
+    <nav class="nav__content">
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-chevron-right' ></i>
+        </div>
+
+        <a href="#" class="nav__logo">
+            <i class='bx bxs-heart' ></i>
+            <span class="nav__logo-name">Hela-diva</span>
+        </a>
+
+        <div class="nav__list">
+            <a href="#" class="nav__link active-link">
+                <i class='bx bx-grid-alt'></i>
+                <span class="nav__name">Dashboard</span>
+            </a>
+
+            <a href="article.html" class="nav__link">
+                <i class='bx bx-envelope' ></i>
+                <span class="nav__name">Article Manage</span>
+            </a>
+
+            <a href="product.html" class="nav__link">
+                <i class='bx bx-file'></i>
+                <span class="nav__name">Product Manage</span>
+            </a>
+
+            <a href="order.html" class="nav__link">
+                <i class='bx bx-bar-chart-square' ></i>
+                <span class="nav__name">Order Manage</span>
+            </a>
+
+
+        </div>
+    </nav>
+</div>
+
+<main class="container section">
+    <h1>Hela-Diva</h1>
+</main>
+
+<script>
+
+    const linkColor = document.querySelectorAll('.nav__link')
+
+    function colorLink(){
+        linkColor.forEach(l => l.classList.remove('active-link'))
+        this.classList.add('active-link')
+    }
+
+    linkColor.forEach(l => l.addEventListener('click', colorLink))
+    const showMenu = (toggleId, navbarId) =>{
+        const toggle = document.getElementById(toggleId),
+            navbar = document.getElementById(navbarId)
+
+        if(toggle && navbar){
+            toggle.addEventListener('click', ()=>{
+                navbar.classList.toggle('show-menu')
+                toggle.classList.toggle('rotate-icon')
+            })
+        }
+    }
+    showMenu('nav-toggle','nav')
+</script>
+</body>
+</html>

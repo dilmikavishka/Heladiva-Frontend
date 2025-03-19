@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Project Heladiva</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #34495e;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            background: rgba(0, 255, 31, 0.2); /* Green tint */
+            backdrop-filter: blur(10px); /* Glass effect */
+            position: fixed;
+            width: 100%;
+            height: 60px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            padding: 12px 20px;
+            z-index: 1000;
+        }
+
+        .navbar-nav .nav-link {
+            color: black !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #27AE60 !important;
+        }
+
+        /* User Profile */
+        .user-profile {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #27AE60;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-menu a {
+            padding: 10px 15px;
+            font-weight: 500;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #27AE60;
+            color: #fff;
+        }
+
+        /* Fullscreen Home Section */
+        .home-section {
+
+            height: 100vh;
+            background: url('pexels-felixmittermeier-957024.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .home-section h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .home-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            background: rgba(0, 255, 31, 0.2); /* Green tint */
+            backdrop-filter: blur(10px); /* Glass effect */
+            border-radius: 30px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1rem;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: 0.3s ease-in-out;
+        }
+
+        .search-container input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-container input:focus {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .search-container .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Heladiva</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Medicines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Remedies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+
+                <!-- User Profile with Dropdown -->
+                <li class="nav-item dropdown user-profile">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                        <img src="https://i.pravatar.cc/300" alt="User">
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><span class="material-icons">person</span> Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><span class="material-icons">settings</span> Settings</a></li>
+                        <li><a class="dropdown-item" href="#"><span class="material-icons">logout</span> Logout</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<section class="home-section">
+    <h1>Welcome to Heladiva</h1>
+    <p>Your one-stop destination for natural medicines and remedies. Explore a world of wellness with us.</p>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" placeholder="Search for remedies, medicines..." aria-label="Search">
+        <span class="material-icons search-icon">search</span>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

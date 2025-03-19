@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heladiva - Medicinal Plants</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="../jquery/jquery.min.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+    }
+    .sidebar {
+      height: 100vh;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      font-family: Bebas;
+      color: black;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .plant-list {
+      color: black;
+      list-style: none;
+      padding: 0;
+    }
+    .plant-list li {
+      padding: 15px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+    .plant-list li:hover, .plant-list li.active {
+      background: #16a085;
+    }
+    .content {
+      padding: 20px;
+      height: 100vh;
+      overflow-y: auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .map-container {
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .product-section {
+      padding: 50px 20px;
+      background-color: #f4f7f6;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 20px;
+      height: 550px; /* Fixed height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .product-image img {
+      max-width: 100%;
+      height: 250px;
+      border-radius: 10px;
+    }
+
+    .product-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .product-price {
+      font-size: 1.3rem;
+      color: #27ae60;
+      font-weight: bold;
+    }
+
+    .size-options button {
+      border: 1px solid #ddd;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: white;
+      margin: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .size-options button:hover,
+    .size-options button.active {
+      background: black;
+      color: white;
+    }
+
+    .add-to-cart {
+      width: 100%;
+      background: black;
+      color: white;
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .add-to-cart:hover {
+      background: #333;
+    }
+
+    .add-to-cart .material-icons {
+      margin-right: 5px;
+    }
+  </style>
+<!--  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>-->
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-3 sidebar">
+      <h2>Medicinal Plants</h2>
+      <input type="text" class="form-control mb-3" id="search-bar" placeholder="Search plants...">
+      <ul class="plant-list">
+      </ul>
+    </nav>
+    <main class="col-md-9 content">
+      <h1 style="font-family: Bebas" id="article-title"></h1>
+      <img src="" alt="" class="img-fluid mb-3" style="border-radius: 10px;">
+      <p><strong></strong> </p>
+      <p><strong></strong> </p>
+      <p><strong></strong> </p>
+      <p><strong></strong> </p>
+      <p><strong></strong> .</p>
+      <p><strong></strong></p>
+      <ul>
+        <li></li>
+
+      </ul>
+      <p><strong></strong> </p>
+      <p><strong></strong> </p>
+      <p><strong></strong> </p>
+<!--      <div class="map-container">-->
+<!--        <iframe-->
+<!--                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63327.70389590203!2d79.8296746061902!3d6.921833720586443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25929274429af%3A0x6c84f60b6a8c82f!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1712191234567!5m2!1sen!2sus"-->
+<!--                width="100%"-->
+<!--                height="350"-->
+<!--                style="border:0;"-->
+<!--                allowfullscreen=""-->
+<!--                loading="lazy">-->
+<!--        </iframe>-->
+<!--      </div>-->
+    </main>
+  </div>
+</div>
+
+<script type="module" src="../JavaScript/articleController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

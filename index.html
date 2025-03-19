@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in & Sign up Form</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </head>
+  <body id="AuthBody">
+    <main>
+      <div class="box">
+        <div class="inner-box">
+          <div class="forms-wrap">
+            <form  autocomplete="off" class="sign-in-form">
+              <div class="logo">
+                <img src="images/logo.png" alt="easyclass" />
+                <h4>Heladiva</h4>
+              </div>
+
+              <div class="heading">
+                <h2>Welcome Back</h2>
+                <h6>Not registred yet?</h6>
+                <a href="#" class="toggle">Sign up</a>
+              </div>
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                    id="emailInput"
+                  />
+                  <label>Name</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    type="password"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    id="passwordInput"
+                    required
+                  />
+                  <label>Password</label>
+                </div>
+
+<!--                <input type="submit" value="Sign In" id="signInButton" class="sign-btn" />-->
+                <button type="submit" id="signInButton" class="sign-btn">
+                  Sign In
+                </button>
+
+                <p class="text">
+                  Forgotten your password or you login datails?
+                  <a href="#">Get help</a> signing in
+                </p>
+              </div>
+            </form>
+
+            <form  autocomplete="off" class="sign-up-form">
+              <div class="logo">
+                <img src="./images/logo.png" alt="easyclass" />
+                <h4>Heladiva</h4>
+              </div>
+
+              <div class="heading">
+                <h2>Get Started</h2>
+                <h6>Already have an account?</h6>
+                <a href="#" class="toggle">Sign in</a>
+              </div>
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                          type="email"
+                          id="SignUpEmailInput"
+                          class="input-field"
+                          autocomplete="off"
+                          required
+                  />
+                  <label>Email</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                          type="password"
+                          id="SignUpPasswordInput"
+                          class="input-field"
+                          autocomplete="off"
+                          required
+                  />
+                  <label>Password</label>
+                </div>
+
+                <div class="input-wrap">
+                  <select id="SignUpRoleSelect" class="input-field" required>
+                    <option value="admin">Admin</option>
+                    <option value="user" selected>User</option>
+                  </select>
+                  <label></label>
+                </div>
+
+
+
+                <button type="submit" class="sign-btn" id="signUpButton">Sign Up</button>
+
+                <p class="text">
+                  By signing up, I agree to the
+                  <a href="#">Terms of Services</a> and
+                  <a href="#">Privacy Policy</a>
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div class="carousel">
+            <div class="images-wrapper">
+              <img src="images/img1.png" class="image img-1 show" alt="" />
+              <img src="images/img2.jpg" class="image img-2" alt="" />
+              <img src="images/img3.jpg" class="image img-3" alt="" />
+            </div>
+
+            <div class="text-slider">
+              <div class="text-wrap">
+                <div class="text-group">
+                  <h2>Find natural solutions for your health</h2>
+                  <h2>Explore herbs and their benefits</h2>
+                  <h2>Preserve and promote indigenous medicine</h2>
+                </div>
+              </div>
+
+              <div class="bullets">
+                <span class="active" data-value="1"></span>
+                <span data-value="2"></span>
+                <span data-value="3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+    <script type="module" src="JavaScript/indexController.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="login/app.js"></script>
+  </body>
+</html>

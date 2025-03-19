@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        .content-container {
+            margin-left: 280px;
+            flex-grow: 1;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .product-card {
+            width: 320px;
+            height: 400px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: 0.3s;
+            position: relative;
+            padding-bottom: 16px;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+        .product-image-container {
+            position: relative;
+        }
+        .product-made {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: black;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 16px;
+            text-align: start;
+        }
+        .product-type {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+        .product-info {
+            padding: 16px;
+            text-align: start;
+        }
+        .product-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #3DBF4E;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .quantity-cart-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantity-btn {
+
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .quantity-btn:hover {
+            background: #333;
+        }
+        .quantity {
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+        }
+        .cart-icon {
+            cursor: pointer;
+            color: #3DBF4E;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .cart-icon:hover {
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <h3 class="text-center">Filter By</h3>
+    <div class="mb-3">
+        <label class="form-label">Type</label>
+        <input type="text" class="form-control" placeholder="Enter type">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="number" class="form-control" placeholder="Max price">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" placeholder="Enter name">
+    </div>
+</div>
+
+<div class="content-container">
+    <div class="product-container">
+
+    </div>
+</div>
+
+<script type="module" src="../JavaScript/ProductController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

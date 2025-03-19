@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Upload</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+        <h3 class="text-center">Upload Image</h3>
+        <form>
+            <div class="mb-3">
+                <label for="fileInput" class="form-label">Choose an image</label>
+                <input type="file" class="form-control" id="fileInput" required>
+            </div>
+            <button type="button" class="btn btn-primary w-100" onclick="uploadImage()">Upload</button>
+        </form>
+        <div class="mt-4 text-center">
+            <h5>Uploaded Image:</h5>
+            <img id="preview" src="" class="img-fluid rounded shadow-sm" style="max-height: 300px; display: none;">
+            <p class="mt-2"><strong>URL:</strong> <span id="imageUrl"></span></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function uploadImage() {
+        const fileInput = document.getElementById('fileInput');
+        if (!fileInput.files.length) {
+            alert("Please select an image!");
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "ml_default");
+
+        fetch("https://api.cloudinary.com/v1_1/dtbzvtpby/image/upload", {
+            method: "POST",
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Uploaded Image URL:", data.secure_url);
+                document.getElementById('preview').src = data.secure_url;
+                document.getElementById('preview').style.display = "block";
+                document.getElementById('imageUrl').textContent = data.secure_url;
+            })
+            .catch(error => console.error("Error uploading image:", error));
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

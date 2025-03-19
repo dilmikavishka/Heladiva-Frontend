@@ -1,0 +1,42 @@
+// import { ArticleAPI } from "./api/AdminArticleAPI.js";
+//
+// function loadArticles() {
+//     const api = new ArticleAPI();
+//     api.getAll()
+//         .then(r => {
+//             console.log("Articles loaded:", r);
+//         })
+//         .catch(error => {
+//             console.error("Error loading articles:", error);
+//         });
+// }
+//
+// loadArticles();
+//
+// const plantItems = document.querySelectorAll('.plant-list li');
+// if (plantItems.length > 0) {
+//     plantItems.forEach(item => {
+//         item.addEventListener('click', function() {
+//             document.querySelectorAll('.plant-list li').forEach(li => li.classList.remove('active'));
+//             this.classList.add('active');
+//             document.querySelector('.content h1').textContent = this.textContent;
+//             document.querySelector('.content p:nth-child(3)').innerHTML = '<strong>Seasons:</strong> Info coming soon';
+//             document.querySelector('.content p:nth-child(4)').innerHTML = '<strong>Locations:</strong> Info coming soon';
+//             document.querySelector('.content p:nth-child(5)').textContent = this.textContent + ' details will be added here.';
+//         });
+//     });
+// }
+//
+// const searchBar = document.getElementById('search-bar');
+// if (searchBar) {
+//     searchBar.addEventListener('input', function() {
+//         let filter = this.value.toLowerCase();
+//         document.querySelectorAll('.plant-list li').forEach(li => {
+//             if (li.textContent.toLowerCase().includes(filter)) {
+//                 li.style.display = '';
+//             } else {
+//                 li.style.display = 'none';
+//             }
+//         });
+//     });
+// }
