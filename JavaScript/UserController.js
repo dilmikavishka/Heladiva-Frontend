@@ -25,10 +25,10 @@ $('#profileUpload').change(async function (event) {
     if (!file) return;
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'my_preset');
+    formData.append('upload_preset', 'ml_default');
 
     try {
-        const response = await fetch('https://api.cloudinary.com/v1_1/dxk36sl3w/image/upload', {
+        const response = await fetch('https://api.cloudinary.com/v1_1/dtbzvtpby/image/upload', {
             method: 'POST',
             body: formData
         });
@@ -78,7 +78,7 @@ $('#Update-Profile-Button').on('click', async (event) => {
     }
 
     const updatedUser = new User(userId, name, email, phone, password, address, role, imageURl);
-    console.log(updatedUser);
+    console.log(updatedUser); // Check if imageUrl is present
 
     try {
         const response = await api.updateUser(updatedUser);

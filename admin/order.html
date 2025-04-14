@@ -6,5 +6,159 @@
 </head>
 <body>
 
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<!--=============== NAV ===============-->
+<div class="nav" id="nav">
+    <nav class="nav__content">
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-chevron-right' ></i>
+        </div>
+
+        <a href="#" class="nav__logo">
+            <i class='bx bxs-heart' ></i>
+            <span class="nav__logo-name">Hela-diva</span>
+        </a>
+
+        <div class="nav__list">
+            <a href="#" class="nav__link active-link">
+                <i class='bx bx-grid-alt'></i>
+                <span class="nav__name">Dashboard</span>
+            </a>
+
+            <a href="article.html" class="nav__link">
+                <i class='bx bx-envelope' ></i>
+                <span class="nav__name">Article Manage</span>
+            </a>
+
+            <a href="product.html" class="nav__link">
+                <i class='bx bx-file'></i>
+                <span class="nav__name">Product Manage</span>
+            </a>
+
+            <a href="order.html" class="nav__link">
+                <i class='bx bx-bar-chart-square' ></i>
+                <span class="nav__name">Order Manage</span>
+            </a>
+            <a href="medicine.html" class="nav__link">
+                <i class='bx bx-capsule' ></i>
+                <span class="nav__name">Medicine Manage</span>
+            </a>
+
+        </div>
+    </nav>
+</div>
+
+<main class="container section">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Orders</h1>
+        <button class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#oderModal">
+            <i class="bx bx-plus me-2"></i> Manage Order
+        </button>
+    </div>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-striped table-bordered text-center">
+            <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Oder</th>
+                <th>Name</th>
+                <th>Total Price</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="OrderTableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<!-- Order Edit Modal -->
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderModalLabel">Edit Order</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editOrderForm">
+                    <input type="hidden" id="OrderID">
+
+                    <div class="mb-3">
+                        <label for="FirstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="FirstName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="LastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="LastName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="TotalPrice" class="form-label">Total Price</label>
+                        <input type="number" class="form-control" id="TotalPrice">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="AddressLine1" class="form-label">Address Line 1</label>
+                        <input type="text" class="form-control" id="AddressLine1">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ApartmentSuite" class="form-label">Apartment/Suite</label>
+                        <input type="text" class="form-control" id="ApartmentSuite">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Road" class="form-label">Road</label>
+                        <input type="text" class="form-control" id="Road">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Status" class="form-label">Status</label>
+                        <select class="form-select" id="Status">
+                            <option value="Pending">Pending</option>
+                            <option value="Shipped">Shipped</option>
+                            <option value="Delivered">Delivered</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="Update-Order-Button">Update Order</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="../JavaScript/admin/OrderController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>
 </html>

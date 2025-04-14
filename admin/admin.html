@@ -43,7 +43,10 @@
                 <span class="nav__name">Order Manage</span>
             </a>
 
-
+            <a href="medicine.html" class="nav__link">
+                <i class='bx bx-capsule' ></i>
+                <span class="nav__name">Medicine Manage</span>
+            </a>
         </div>
     </nav>
 </div>
@@ -68,7 +71,9 @@
 
         if(toggle && navbar){
             toggle.addEventListener('click', ()=>{
+                /* Show menu */
                 navbar.classList.toggle('show-menu')
+                /* Rotate toggle icon */
                 toggle.classList.toggle('rotate-icon')
             })
         }

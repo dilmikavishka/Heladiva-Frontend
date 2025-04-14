@@ -1,6 +1,7 @@
 import {LoginAPI} from "./api/LoginAPI.js";
 import {SignIn} from "./model/SignIn.js";
 import {SignUp} from "./model/SignUp.js";
+import {ProductAPI} from "./api/ProductAPI.js";
 
 $('#signInButton').on('click', async (event) => {
     event.preventDefault();
@@ -55,7 +56,6 @@ $('#signInButton').on('click', async (event) => {
     }
 });
 
-
 $(document).ready(function () {
     const user = JSON.parse(localStorage.getItem('user'));
     const userRole = user.role;
@@ -69,6 +69,27 @@ $(document).ready(function () {
         `;
         navbarNav.find(".user-profile").before(adminLinks);
     }
+
+    const api = new ProductAPI();
+    api.getAll().then((products) => {
+        const productContainer = $(".product-section .row");
+        productContainer.empty(); // Clear any existing content
+
+        products.slice(0, 3).forEach(product => {
+            const productCard = `
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="${product.imageUrl}" alt="${product.name}">
+                        </div>
+                        <h5 class="product-title">${product.name}</h5>
+                        <p class="product-price">Rs.${product.price}</p>
+                    </div>
+                </div>
+            `;
+            productContainer.append(productCard);
+        });
+    }).catch(error => console.error("Error fetching products:", error));
 });
 
 $('#signUpButton').on('click', async (event) => {
@@ -97,7 +118,7 @@ $('#signUpButton').on('click', async (event) => {
                 timer: 2000,
                 showConfirmButton: false,
             }).then(() => {
-                window.location.href = "./pages/Home.html";
+                window.location.reload()
             });
 
         } else {
@@ -123,6 +144,7 @@ $('#signUpButton').on('click', async (event) => {
         });
     }
 });
+
 
 
 

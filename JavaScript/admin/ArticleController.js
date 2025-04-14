@@ -17,7 +17,7 @@ function LoadAllArticles() {
 
 function populateTable(articles) {
     const $tableBody = $("#articleTableBody");
-    $tableBody.empty();
+    $tableBody.empty(); // Clear previous data
 
     articles.forEach((article, index) => {
         const row = `
@@ -44,10 +44,10 @@ $("#imageUpload").on("change", async function(event) {
 
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'my_preset');
+    formData.append('upload_preset', 'ml_default');
 
     try {
-        const response = await fetch('https://api.cloudinary.com/v1_1/dxk36sl3w/image/upload', {
+        const response = await fetch('https://api.cloudinary.com/v1_1/dtbzvtpby/image/upload', {
             method: 'POST',
             body: formData
         });
@@ -83,7 +83,7 @@ showMenu("nav-toggle", "nav");
 
 $('#Save-Article-Button').on('click', async (event) => {
     event.preventDefault();
-    console.log("Save button clicked");
+    console.log("Save button clicked"); // Debugging step
 
     const user = JSON.parse(localStorage.getItem('user'));
     if (!user) {
@@ -100,7 +100,10 @@ $('#Save-Article-Button').on('click', async (event) => {
         $("#uses").val(),
         $("#description").val(),
         $("#healthBenefits").val(),
-        $("#mapCoordinates").val(),
+        $("#springCoordinates").val(),
+        $("#summerCoordinates").val(),
+        $("#autumnCoordinates").val(),
+        $("#winterCoordinates").val(),
         user.userId,
         $("#publishedDate").val(),
         $("#tags").val(),
@@ -116,9 +119,9 @@ $('#Save-Article-Button').on('click', async (event) => {
             title: 'Article Created!',
             text: 'Your article has been successfully created.',
         }).then(() => {
-            $("#articleForm")[0].reset();
-            $("#previewImage").attr("src", "");
-            $("#articleModal").modal("hide");
+            $("#articleForm")[0].reset(); // Reset form fields
+            $("#previewImage").attr("src", ""); // Reset image preview
+            $("#articleModal").modal("hide"); // Hide modal after update
             window.location.reload();
         });
     } catch (error) {
@@ -167,10 +170,13 @@ $(document).on("click", ".edit-btn", async function () {
         $("#uses").val(article.uses);
         $("#description").val(article.description);
         $("#healthBenefits").val(article.healthBenefits);
-        $("#mapCoordinates").val(article.mapCoordinates);
+        $("#springCoordinates").val(article.springCoordinates);
+        $("#summerCoordinates").val(article.summerCoordinates);
+        $("#autumnCoordinates").val(article.autumnCoordinates);
+        $("#winterCoordinates").val(article.winterCoordinates);
         $("#publishedDate").val(article.publishedDate || new Date().toISOString().split('T')[0]);
         $("#tags").val(article.tags);
-        $("#authorId").val(article.authorId);
+        $("#authorId").val(article.authorId); // Set author ID
         $("#previewImage").attr("src", article.imageUrl || 'https://via.placeholder.com/100');
         $("#articleModalLabel").text("Edit Article");
 
@@ -201,7 +207,10 @@ $('#Update-Article-Button').on("click", async function () {
         $("#uses").val(),
         $("#description").val(),
         $("#healthBenefits").val(),
-        $("#mapCoordinates").val(),
+        $("#springCoordinates").val(),
+        $("#summerCoordinates").val(),
+        $("#autumnCoordinates").val(),
+        $("#winterCoordinates").val(),
         JSON.parse(localStorage.getItem('user')).userId,
         $("#publishedDate").val(),
         $("#tags").val(),
@@ -216,9 +225,9 @@ $('#Update-Article-Button').on("click", async function () {
             title: 'Article Updated!',
             text: 'Your article has been successfully updated.',
         }).then(() => {
-            $("#articleForm")[0].reset();
-            $("#previewImage").attr("src", "");
-            $("#articleModal").modal("hide");
+            $("#articleForm")[0].reset(); // Reset form fields
+            $("#previewImage").attr("src", ""); // Reset image preview
+            $("#articleModal").modal("hide"); // Hide modal after update
             window.location.reload();
         });
     } catch (error) {

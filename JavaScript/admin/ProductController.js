@@ -66,10 +66,10 @@ $("#imageUpload").on("change", async function(event) {
 
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'my_preset');
+    formData.append('upload_preset', 'ml_default');
 
     try {
-        const response = await fetch('https://api.cloudinary.com/v1_1/dxk36sl3w/image/upload', {
+        const response = await fetch('https://api.cloudinary.com/v1_1/dtbzvtpby/image/upload', {
             method: 'POST',
             body: formData
         });

@@ -12,7 +12,7 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-
+<!--=============== NAV ===============-->
 <div class="nav" id="nav">
     <nav class="nav__content">
         <div class="nav__toggle" id="nav-toggle">
@@ -29,17 +29,25 @@
                 <i class='bx bx-grid-alt'></i>
                 <span class="nav__name">Dashboard</span>
             </a>
+
             <a href="article.html" class="nav__link">
                 <i class='bx bx-envelope' ></i>
                 <span class="nav__name">Article Manage</span>
             </a>
+
             <a href="product.html" class="nav__link">
                 <i class='bx bx-file'></i>
                 <span class="nav__name">Product Manage</span>
             </a>
+
             <a href="order.html" class="nav__link">
                 <i class='bx bx-bar-chart-square' ></i>
                 <span class="nav__name">Order Manage</span>
+            </a>
+
+            <a href="medicine.html" class="nav__link">
+                <i class='bx bx-capsule' ></i>
+                <span class="nav__name">Medicine Manage</span>
             </a>
         </div>
     </nav>
@@ -73,7 +81,6 @@
     </div>
 
 </main>
-
 
 <div class="modal fade" id="articleModal" tabindex="-1" aria-labelledby="articleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg"> <!-- Added modal-lg for larger width -->
@@ -110,15 +117,28 @@
                                 <label class="form-label">Description</label>
                                 <textarea class="form-control" id="description"></textarea>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Health Benefits</label>
                                 <textarea class="form-control" id="healthBenefits"></textarea>
                             </div>
+                        </div>
+                        <div class="col-md-6">
+
                             <div class="mb-3">
-                                <label class="form-label">Map Coordinates</label>
-                                <input type="text" class="form-control" id="mapCoordinates">
+                                <label class="form-label">Spring Coordinates</label>
+                                <input type="text" class="form-control" id="springCoordinates">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Summer Coordinates</label>
+                                <input type="text" class="form-control" id="summerCoordinates">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Autumn Coordinates</label>
+                                <input type="text" class="form-control" id="autumnCoordinates">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Winter Coordinates</label>
+                                <input type="text" class="form-control" id="winterCoordinates">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Author ID</label>
@@ -146,7 +166,6 @@
         </div>
     </div>
 </div>
-
 
 <script>
 

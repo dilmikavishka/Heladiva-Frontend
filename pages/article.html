@@ -71,7 +71,7 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease-in-out;
       margin-bottom: 20px;
-      height: 550px; /* Fixed height */
+      height: 550px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -137,8 +137,42 @@
     .add-to-cart .material-icons {
       margin-right: 5px;
     }
+    .season-buttons {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    #translate-btn {
+      background-color: #3DBF4E;
+      color: white;
+      border: none;
+      padding: 10px 15px 10px 15px;
+
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    #translate-btn:hover {
+      background-color: #dddddd;
+    }
+
+    #season-select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    #season-select:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
   </style>
-<!--  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>-->
 </head>
 <body>
 <div class="container-fluid">
@@ -151,7 +185,8 @@
     </nav>
     <main class="col-md-9 content">
       <h1 style="font-family: Bebas" id="article-title"></h1>
-      <img src="" alt="" class="img-fluid mb-3" style="border-radius: 10px;">
+      <button id="translate-btn">සිංහලට මාරු වන්න</button>
+      <img src="" alt="" class="img-fluid mb-3" style="border-radius: 10px; margin-top: 20px">
       <p><strong></strong> </p>
       <p><strong></strong> </p>
       <p><strong></strong> </p>
@@ -165,16 +200,24 @@
       <p><strong></strong> </p>
       <p><strong></strong> </p>
       <p><strong></strong> </p>
-<!--      <div class="map-container">-->
-<!--        <iframe-->
-<!--                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63327.70389590203!2d79.8296746061902!3d6.921833720586443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25929274429af%3A0x6c84f60b6a8c82f!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1712191234567!5m2!1sen!2sus"-->
-<!--                width="100%"-->
-<!--                height="350"-->
-<!--                style="border:0;"-->
-<!--                allowfullscreen=""-->
-<!--                loading="lazy">-->
-<!--        </iframe>-->
-<!--      </div>-->
+      <label for="season-select">Select Season:</label>
+      <select id="season-select">
+        <option value="spring">Spring</option>
+        <option value="summer">Summer</option>
+        <option value="autumn">Autumn</option>
+        <option value="winter">Winter</option>
+      </select>
+
+      <div class="map-container">
+        <iframe id="article-map"
+                width="100%"
+                height="350"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+        </iframe>
+      </div>
+
     </main>
   </div>
 </div>

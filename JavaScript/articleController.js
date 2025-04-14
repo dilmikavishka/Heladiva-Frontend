@@ -57,24 +57,11 @@ function fetchArticleById(articleId) {
         });
 }
 
-
-
 function updateContent(article) {
     if (!article) return;
 
-
-    const titleElement = document.getElementById('article-title');
-    if (titleElement) {
-        titleElement.textContent = article.title || 'Unknown Title';
-    }
-
-
-    const imageElement = document.querySelector('.content img');
-    if (imageElement) {
-        imageElement.src = article.imageUrl || '../images/default.jpg';
-        imageElement.alt = article.title || 'Image';
-    }
-
+    document.getElementById('article-title').textContent = article.title || 'Unknown Title';
+    document.querySelector('.content img').src = article.imageUrl || '../images/default.jpg';
 
     const fields = [
         { selector: '.content p:nth-child(2)', label: 'Scientific Name', value: article.scientificName },
@@ -88,10 +75,10 @@ function updateContent(article) {
     fields.forEach(field => {
         const element = document.querySelector(field.selector);
         if (element) {
-            element.innerHTML = `<strong>${field.label}:</strong> ${field.value || 'Info coming soon'}`;
+            element.textContent = `${field.label}: ${field.value || 'Info coming soon'}`;
+            element.dataset.originalText = element.textContent;
         }
     });
-
 
     const benefitsList = document.querySelector('.content ul');
     if (benefitsList) {
@@ -100,11 +87,49 @@ function updateContent(article) {
             article.healthBenefits.split(',').forEach(benefit => {
                 const li = document.createElement('li');
                 li.textContent = benefit.trim();
+                li.dataset.originalText = li.textContent;
                 benefitsList.appendChild(li);
             });
         } else {
             benefitsList.innerHTML = '<li>Info coming soon</li>';
         }
+    }
+
+    updateMap(article.springCoordinates);
+
+    const seasonSelect = document.getElementById('season-select');
+    seasonSelect.onchange = function () {
+        const season = seasonSelect.value;
+        let coordinates;
+
+        switch (season) {
+            case 'spring':
+                coordinates = article.springCoordinates;
+                break;
+            case 'summer':
+                coordinates = article.summerCoordinates;
+                break;
+            case 'autumn':
+                coordinates = article.autumnCoordinates;
+                break;
+            case 'winter':
+                coordinates = article.winterCoordinates;
+                break;
+        }
+
+        updateMap(coordinates);
+    };
+
+    if (isSinhala) translateContent();
+}
+
+function updateMap(coordinates) {
+    if (!coordinates) return;
+
+    const mapFrame = document.getElementById('article-map');
+    if (mapFrame) {
+        const [lat, lng] = coordinates.split(',').map(coord => coord.trim());
+        mapFrame.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyAD67xxpe4hEjA10tA3d38V414Jot0M9q0&q=${lat},${lng}`;
     }
 }
 
@@ -122,6 +147,50 @@ if (searchBar) {
             }
         });
     });
+}
+
+
+const apiKey = "AIzaSyAFRGPIwE0QvjwHwPWMhhsAveOuM8GdHXo";
+let isSinhala = false;
+
+document.getElementById("translate-btn").addEventListener("click", function () {
+    isSinhala = !isSinhala;
+    this.textContent = isSinhala ? "Switch to English" : "සිංහලට මාරු වන්න";
+    translateContent();
+});
+
+function translateContent() {
+    const contentElements = document.querySelectorAll(".content p, .content h2,.content h2, .content li, .content option");
+
+    contentElements.forEach(async (element) => {
+        const text = element.dataset.originalText || element.textContent;
+        if (!text) return;
+
+        if (!element.dataset.originalText) {
+            element.dataset.originalText = text;
+        }
+
+        const targetLang = isSinhala ? "si" : "en";
+        const translatedText = await translateText(text, targetLang);
+        element.textContent = translatedText;
+    });
+}
+
+async function translateText(text, targetLang) {
+    const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            q: text,
+            target: targetLang
+        })
+    });
+
+    const data = await response.json();
+    return data.data.translations[0].translatedText;
 }
 
 loadArticles();

@@ -12,14 +12,14 @@ export class AdminProductAPI{
                 "Content-Type": "application/json"
             };
 
-            console.log("Request Headers:", headers);
+            console.log("Request Headers:", headers); // Debugging
 
             const response = await fetch("http://localhost:8080/Heladiva/api/product/getAll", {
                 method: "GET",
                 headers: headers,
             });
 
-            console.log("Response Status:", response.status);
+            console.log("Response Status:", response.status); // Debugging
 
             if (!response.ok) {
                 const errorText = await response.text();
@@ -137,9 +137,9 @@ export class AdminProductAPI{
 
     async delete(productID) {
         try {
-            const token = localStorage.getItem("authToken");
+            const token = localStorage.getItem("authToken"); // Get token inside the function
 
-            console.log("Using Token:", token);
+            console.log("Using Token:", token); // Debugging
 
             if (!token) {
                 throw new Error("No authentication token found.");
@@ -150,7 +150,7 @@ export class AdminProductAPI{
                 "Content-Type": "application/json"
             };
 
-            console.log("Request Headers:", headers);
+            console.log("Request Headers:", headers); // Debugging
 
             const response = await fetch(`http://localhost:8080/Heladiva/api/product/admin/delete/${productID}`, {
                 method: "DELETE",
@@ -164,7 +164,7 @@ export class AdminProductAPI{
                 throw new Error(`Request failed with status: ${response.status}, Response: ${errorText}`);
             }
 
-            return await response.json();
+            return await response.json(); // Added await
         } catch (error) {
             console.error("Error fetching article by ID:", error);
             throw error;

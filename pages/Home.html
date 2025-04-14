@@ -174,7 +174,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease-in-out;
             margin-bottom: 20px;
-            height: 550px; /* Fixed height */
+            height: 400px; /* Fixed height */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -189,6 +189,7 @@
             max-width: 100%;
             height: 250px;
             border-radius: 10px;
+            object-fit: cover;
         }
 
         .product-title {
@@ -462,7 +463,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Medicines</a></li>
+                <li class="nav-item"><a class="nav-link" href="Medicine.html">Medicines</a></li>
                 <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
                 <li class="nav-item"><a class="nav-link" href="article.html">Encarta</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about-section">About</a></li>
@@ -474,7 +475,7 @@
                     </a>
                     <ul class="dropdown-menu" id="dropdownMenu">
                         <li><a class="dropdown-item" href="ProfileEdits.html" id="profile-nav-dropdown"><span class="material-icons">person</span> Profile</a></li>
-                        <li><a class="dropdown-item" href="#"><span class="material-icons">settings</span> Settings</a></li>
+                        <li><a class="dropdown-item" href="TrackOrder.html"><span class="material-icons">monitor</span> Track Order</a></li>
                         <li><a class="dropdown-item" href="../index.html"><span class="material-icons">logout</span> Logout</a></li>
                     </ul>
                 </li>
@@ -500,68 +501,68 @@
     <div class="container mt-5">
         <h2 class="section-title">Our Products</h2>
         <div class="row justify-content-center">
-            <!-- Product Card 1 -->
-            <div class="col-md-4">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="../images/thesimplegreen-citrus-ginger-tonic-4.jpg" alt="Product">
-                    </div>
-                    <h5 class="product-title">Ginger Root Tonic</h5>
-                    <p class="product-price">Rs.5000.00</p>
-                    <p>Select Amount(g)</p>
-                    <div class="size-options d-flex justify-content-center">
-                        <button>40.5</button>
-                        <button class="active">41</button>
-                        <button>42</button>
-                        <button>43</button>
-                    </div>
-                    <button class="add-to-cart">
-                        <span class="material-icons">add_shopping_cart</span> Add to Cart
-                    </button>
-                </div>
-            </div>
+            <!--            &lt;!&ndash; Product Card 1 &ndash;&gt;-->
+            <!--            <div class="col-md-4">-->
+            <!--                <div class="product-card">-->
+            <!--                    <div class="product-image">-->
+            <!--                        <img src="../images/thesimplegreen-citrus-ginger-tonic-4.jpg" alt="Product">-->
+            <!--                    </div>-->
+            <!--                    <h5 class="product-title">Ginger Root Tonic</h5>-->
+            <!--                    <p class="product-price">Rs.5000.00</p>-->
+            <!--                    <p>Select Amount(g)</p>-->
+            <!--                    <div class="size-options d-flex justify-content-center">-->
+            <!--                        <button>40.5</button>-->
+            <!--                        <button class="active">41</button>-->
+            <!--                        <button>42</button>-->
+            <!--                        <button>43</button>-->
+            <!--                    </div>-->
+            <!--                    <button class="add-to-cart">-->
+            <!--                        <span class="material-icons">add_shopping_cart</span> Add to Cart-->
+            <!--                    </button>-->
+            <!--                </div>-->
+            <!--            </div>-->
 
-            <!-- Product Card 2 -->
-            <div class="col-md-4">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="../images/Soothing_Body_Lotion_250ml_2000X2500_6f1ca82a-a5c5-4410-9fa4-1edb157de325.webp" alt="Product">
-                    </div>
-                    <h5 class="product-title">Herbal Dew Drops</h5>
-                    <p class="product-price">Rs.170.00</p>
-                    <p>Select Amount(g)</p>
-                    <div class="size-options d-flex justify-content-center">
-                        <button>40</button>
-                        <button class="active">41</button>
-                        <button>42</button>
-                        <button>44</button>
-                    </div>
-                    <button class="add-to-cart">
-                        <span class="material-icons">add_shopping_cart</span> Add to Cart
-                    </button>
-                </div>
-            </div>
+            <!--            &lt;!&ndash; Product Card 2 &ndash;&gt;-->
+            <!--            <div class="col-md-4">-->
+            <!--                <div class="product-card">-->
+            <!--                    <div class="product-image">-->
+            <!--                        <img src="../images/Soothing_Body_Lotion_250ml_2000X2500_6f1ca82a-a5c5-4410-9fa4-1edb157de325.webp" alt="Product">-->
+            <!--                    </div>-->
+            <!--                    <h5 class="product-title">Herbal Dew Drops</h5>-->
+            <!--                    <p class="product-price">Rs.170.00</p>-->
+            <!--                    <p>Select Amount(g)</p>-->
+            <!--                    <div class="size-options d-flex justify-content-center">-->
+            <!--                        <button>40</button>-->
+            <!--                        <button class="active">41</button>-->
+            <!--                        <button>42</button>-->
+            <!--                        <button>44</button>-->
+            <!--                    </div>-->
+            <!--                    <button class="add-to-cart">-->
+            <!--                        <span class="material-icons">add_shopping_cart</span> Add to Cart-->
+            <!--                    </button>-->
+            <!--                </div>-->
+            <!--            </div>-->
 
-            <!-- Product Card 3 -->
-            <div class="col-md-4">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="../images/CO1.jpg" alt="Product">
-                    </div>
-                    <h5 class="product-title">Cinnamon Essence Elixir</h5>
-                    <p class="product-price">Rs.1360.00</p>
-                    <p>Select Amount(g)</p>
-                    <div class="size-options d-flex justify-content-center">
-                        <button>40</button>
-                        <button class="active">41</button>
-                        <button>42.5</button>
-                        <button>44</button>
-                    </div>
-                    <button class="add-to-cart">
-                        <span class="material-icons">add_shopping_cart</span> Add to Cart
-                    </button>
-                </div>
-            </div>
+            <!--            &lt;!&ndash; Product Card 3 &ndash;&gt;-->
+            <!--            <div class="col-md-4">-->
+            <!--                <div class="product-card">-->
+            <!--                    <div class="product-image">-->
+            <!--                        <img src="../images/CO1.jpg" alt="Product">-->
+            <!--                    </div>-->
+            <!--                    <h5 class="product-title">Cinnamon Essence Elixir</h5>-->
+            <!--                    <p class="product-price">Rs.1360.00</p>-->
+            <!--                    <p>Select Amount(g)</p>-->
+            <!--                    <div class="size-options d-flex justify-content-center">-->
+            <!--                        <button>40</button>-->
+            <!--                        <button class="active">41</button>-->
+            <!--                        <button>42.5</button>-->
+            <!--                        <button>44</button>-->
+            <!--                    </div>-->
+            <!--                    <button class="add-to-cart">-->
+            <!--                        <span class="material-icons">add_shopping_cart</span> Add to Cart-->
+            <!--                    </button>-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
     </div>
 </section>

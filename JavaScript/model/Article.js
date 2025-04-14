@@ -1,6 +1,7 @@
 export class Article {
     constructor(articleId, title, scientificName, seasonality, location, uses, description,
-                healthBenefits, mapCoordinates, authorId, publishedDate, tags, imageUrl) {
+                healthBenefits, springCoordinates, summerCoordinates, autumnCoordinates, winterCoordinates,
+                authorId, publishedDate, tags, imageUrl) {
         this.articleId = articleId;
         this.title = title;
         this.scientificName = scientificName;
@@ -9,7 +10,10 @@ export class Article {
         this.uses = uses;
         this.description = description;
         this.healthBenefits = healthBenefits;
-        this.mapCoordinates = mapCoordinates;
+        this.springCoordinates = springCoordinates;
+        this.summerCoordinates = summerCoordinates;
+        this.autumnCoordinates = autumnCoordinates;
+        this.winterCoordinates = winterCoordinates;
         this.authorId = authorId;
         this.publishedDate = publishedDate;
         this.tags = tags;
