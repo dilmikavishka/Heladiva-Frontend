@@ -69,9 +69,9 @@ Check out a video walkthrough of Project Heladiva on YouTube:
 
 ## 📺 ScreenShots
 
-![IMG-20240711-WA0013](https://github.com/RayanCooray/phone-shop/blob/master/public/application/Screenshot%20(4251).png)
-![IMG-20240711-WA0012](https://github.com/RayanCooray/phone-shop/blob/master/public/application/Screenshot%20(4253).png)
-![IMG-20240711-WA0011](https://github.com/RayanCooray/phone-shop/blob/master/public/application/Screenshot%20(4254).png)
-![IMG-20240711-WA0010](https://github.com/RayanCooray/phone-shop/blob/master/public/application/Screenshot%20(4255).png)
-![IMG-20240711-WA0009](https://github.com/RayanCooray/phone-shop/blob/master/public/application/Screenshot%20(4256).png)
-![IMG-20240711-WA0007](https://github.com/RayanCooray/phone-shop/blob/master/public/application/Screenshot%20(4259).png)
+![IMG-20240711-WA0013](https://github.com/dilmikavishka/Heladiva-Frontend/blob/master/demo%20images/Screenshot%202025-04-16%20133550.png)
+![IMG-20240711-WA0012](https://github.com/dilmikavishka/Heladiva-Frontend/blob/master/demo%20images/Screenshot%202025-04-16%20133604.png)
+![IMG-20240711-WA0011](https://github.com/dilmikavishka/Heladiva-Frontend/blob/master/demo%20images/Screenshot%202025-04-16%20133621.png)
+![IMG-20240711-WA0010](https://github.com/dilmikavishka/Heladiva-Frontend/blob/master/demo%20images/Screenshot%202025-04-16%20133640.png)
+![IMG-20240711-WA0009](https://github.com/dilmikavishka/Heladiva-Frontend/blob/master/demo%20images/Screenshot%202025-04-16%20133725.png)
+![IMG-20240711-WA0007](https://github.com/dilmikavishka/Heladiva-Frontend/blob/master/demo%20images/Screenshot%202025-04-16%20133747.png)
