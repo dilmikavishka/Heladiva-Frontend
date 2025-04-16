@@ -2,6 +2,7 @@ import {LoginAPI} from "./api/LoginAPI.js";
 import {SignIn} from "./model/SignIn.js";
 import {SignUp} from "./model/SignUp.js";
 import {ProductAPI} from "./api/ProductAPI.js";
+import {ContactAPI} from "./api/ContactAPI.js";
 
 $('#signInButton').on('click', async (event) => {
     event.preventDefault();
@@ -92,6 +93,54 @@ $(document).ready(function () {
     }).catch(error => console.error("Error fetching products:", error));
 });
 
+$("#send-message").on('click',async function (event) {
+    event.preventDefault();
+
+    const name = $("#name").val();
+    const email = $("#email").val();
+    const message = $("#message").val();
+
+    if (!name || !email || !message) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'All fields are required!'
+        });
+        return;
+    }
+
+    const api = new ContactAPI();
+    try {
+        const response = await api.sendMessage({
+            name: name,
+            email: email,
+            message: message
+        });
+
+        if (response.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Message Sent!',
+                text: 'Your message has been sent successfully!',
+                timer: 2000,
+                showConfirmButton: false
+            });
+
+            $("#name").val("")
+            $("#email").val("")
+            $("#message").val("")
+        } else {
+            throw new Error(response.message || "Something went wrong");
+        }
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: error.message
+        });
+    }
+});
+
 $('#signUpButton').on('click', async (event) => {
     event.preventDefault();
 
@@ -118,7 +167,7 @@ $('#signUpButton').on('click', async (event) => {
                 timer: 2000,
                 showConfirmButton: false,
             }).then(() => {
-                window.location.reload()
+                window.location.reload();
             });
 
         } else {

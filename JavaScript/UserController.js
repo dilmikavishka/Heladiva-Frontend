@@ -11,7 +11,17 @@ function setUserDetails() {
         $('#address').val(user.address || '');
         $('#password').val('');
         $('#role').val(user.role || '');
-
+        const userRole = user.role;
+        if (user.imageUrl) {
+            $('#nav-bar-profile-image').attr('src', user.imageUrl);
+        }
+        const navbarNav = $(".navbar-nav");
+        if (userRole === "Admin") {
+            const adminLinks = `
+            <li class="nav-item"><a class="nav-link" href="../admin/admin.html">Admin DB</a></li>
+        `;
+            navbarNav.find(".user-profile").before(adminLinks);
+        }
 
         if (user.imageUrl) {
             $('#profileImage').attr('src', user.imageUrl);

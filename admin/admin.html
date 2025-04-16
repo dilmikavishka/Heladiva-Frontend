@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Admin Dashboard</title>
 </head>
+
 <body>
 <!--=============== NAV ===============-->
 <div class="nav" id="nav">
     <nav class="nav__content">
         <div class="nav__toggle" id="nav-toggle">
-            <i class='bx bx-chevron-right' ></i>
+            <i class='bx bx-chevron-right'></i>
         </div>
 
         <a href="#" class="nav__logo">
-            <i class='bx bxs-heart' ></i>
+            <i class='bx bxs-heart'></i>
             <span class="nav__logo-name">Hela-diva</span>
         </a>
 
@@ -29,7 +32,7 @@
             </a>
 
             <a href="article.html" class="nav__link">
-                <i class='bx bx-envelope' ></i>
+                <i class='bx bx-envelope'></i>
                 <span class="nav__name">Article Manage</span>
             </a>
 
@@ -39,12 +42,12 @@
             </a>
 
             <a href="order.html" class="nav__link">
-                <i class='bx bx-bar-chart-square' ></i>
+                <i class='bx bx-bar-chart-square'></i>
                 <span class="nav__name">Order Manage</span>
             </a>
 
             <a href="medicine.html" class="nav__link">
-                <i class='bx bx-capsule' ></i>
+                <i class='bx bx-capsule'></i>
                 <span class="nav__name">Medicine Manage</span>
             </a>
         </div>
@@ -52,33 +55,97 @@
 </div>
 
 <main class="container section">
-    <h1>Hela-Diva</h1>
+    <h1>Hela-Diva Admin Dashboard</h1>
+    <div class="row">
+
+        <!-- Chart -->
+        <div class="col-12 col-md-8">
+            <h3>Orders Overview</h3>
+            <canvas id="orderChart" width="400" height="200"></canvas>
+        </div>
+        <!-- Order Card -->
+        <div class="col-12 col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Total Orders</div>
+                <div class="card-body">
+                    <h5 class="card-title" id="orderCount">Loading...</h5>
+                    <p class="card-text">Total number of orders placed on the platform.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Remedies</div>
+                <div class="card-body">
+                    <h5 class="card-title" id="RemedyCount">Loading...</h5>
+                    <p class="card-text">Total number of Remedies</p>
+                </div>
+            </div>
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Total products</div>
+                <div class="card-body">
+                    <h5 class="card-title" id="ProductCount">Loading...</h5>
+                    <p class="card-text">Total number of Product on Platform</p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>>
+    <div class="row">
+
+        <div class="col-12 col-md-6">
+            <h3>Articles</h3>
+            <table class="table table-striped table-bordered" id="articleTable">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Order Table -->
+        <div class="col-12 col-md-6">
+            <h3>Orders</h3>
+            <table class="table table-striped table-bordered" id="orderTable">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3>Medicine List</h3>
+            <table class="table table-striped table-bordered" id="medicineTable">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Medicine Name</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </main>
 
-<script>
 
-    const linkColor = document.querySelectorAll('.nav__link')
-
-    function colorLink(){
-        linkColor.forEach(l => l.classList.remove('active-link'))
-        this.classList.add('active-link')
-    }
-
-    linkColor.forEach(l => l.addEventListener('click', colorLink))
-    const showMenu = (toggleId, navbarId) =>{
-        const toggle = document.getElementById(toggleId),
-            navbar = document.getElementById(navbarId)
-
-        if(toggle && navbar){
-            toggle.addEventListener('click', ()=>{
-                /* Show menu */
-                navbar.classList.toggle('show-menu')
-                /* Rotate toggle icon */
-                toggle.classList.toggle('rotate-icon')
-            })
-        }
-    }
-    showMenu('nav-toggle','nav')
-</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="../JavaScript/admin/AdminController.js"></script>
 </body>
+
 </html>

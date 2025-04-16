@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<!--=============== NAV ===============-->
+<div class="nav" id="nav">
+    <nav class="nav__content">
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-chevron-right' ></i>
+        </div>
+
+        <a href="#" class="nav__logo">
+            <i class='bx bxs-heart' ></i>
+            <span class="nav__logo-name">Hela-diva</span>
+        </a>
+
+        <div class="nav__list">
+            <a href="#" class="nav__link active-link">
+                <i class='bx bx-grid-alt'></i>
+                <span class="nav__name">Dashboard</span>
+            </a>
+
+            <a href="article.html" class="nav__link">
+                <i class='bx bx-envelope' ></i>
+                <span class="nav__name">Article Manage</span>
+            </a>
+
+            <a href="product.html" class="nav__link">
+                <i class='bx bx-file'></i>
+                <span class="nav__name">Product Manage</span>
+            </a>
+
+            <a href="order.html" class="nav__link">
+                <i class='bx bx-bar-chart-square' ></i>
+                <span class="nav__name">Order Manage</span>
+            </a>
+            <a href="medicine.html" class="nav__link">
+                <i class='bx bx-capsule' ></i>
+                <span class="nav__name">Medicine Manage</span>
+            </a>
+
+
+        </div>
+    </nav>
+</div>
+
+<main class="container section">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Medicines for Common Disease</h1>
+        <button class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#medicineModal">
+            <i class="bx bx-plus me-2"></i> Manage Medicines
+        </button>
+    </div>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-striped table-bordered text-center">
+            <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Cure ID </th>
+                <th>Name</th>
+                <th>Disease</th>
+                <th>Description</th>
+                <th>preparation</th>
+                <th>Usage</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="MedicalTableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<!-- Order Edit Modal -->
+<!-- Medicine Manage Modal -->
+<div class="modal fade" id="medicineModal" tabindex="-1" aria-labelledby="medicineModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="medicineModalLabel">Manage Medicine</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="medicineForm">
+                    <div class="mb-3">
+                        <label for="medicineName" class="form-label">Medicine Name</label>
+                        <input type="text" class="form-control" id="medicineName" required pattern="^[A-Za-z\s]+$">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="disease" class="form-label">Disease</label>
+                        <input type="text" class="form-control" id="disease" required pattern="^[A-Za-z\s,]+$">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="allergies" class="form-label">Allergies</label>
+                        <input type="text" class="form-control" id="allergies" pattern="^[A-Za-z\s,]*$">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ingredients" class="form-label">Ingredients (Comma Separated)</label>
+                        <input type="text" class="form-control" id="ingredients">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="preparation" class="form-label">Preparation</label>
+                        <textarea class="form-control" id="preparation" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="usage" class="form-label">Usage Instructions</label>
+                        <textarea class="form-control" id="usage" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="sideEffects" class="form-label">Side Effects (Comma Separated)</label>
+                        <input type="text" class="form-control" id="sideEffects">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="authorId" class="form-label">Author ID</label>
+                        <input type="text" class="form-control" id="authorId" readonly disabled>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="Save-Medicine-Button">Save Medicine</button>
+                        <button type="submit" class="btn btn-secondary" id="Update-Medicine-Button">Update Medicine</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="module" src="../JavaScript/admin/MedicineController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+</html>

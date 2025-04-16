@@ -12,14 +12,14 @@ export class ProductAPI{
                 "Content-Type": "application/json"
             };
 
-            console.log("Request Headers:", headers);
+            console.log("Request Headers:", headers); // Debugging
 
             const response = await fetch("http://localhost:8080/Heladiva/api/product/getAll", {
                 method: "GET",
                 headers: headers,
             });
 
-            console.log("Response Status:", response.status);
+            console.log("Response Status:", response.status); // Debugging
 
             if (!response.ok) {
                 const errorText = await response.text();
